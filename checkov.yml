@@ -1,0 +1,17 @@
+name: IaC Security Scan
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run Checkov Scan
+        uses: bridgecrewio/checkov-action@master
+        with:
+          directory: .
