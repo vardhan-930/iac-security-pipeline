@@ -11,7 +11,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Secure S3 bucket
+# Secure S3 bucket (use a globally-unique name)
 resource "aws_s3_bucket" "secure" {
   bucket = "my-iac-demo-bucket-123456-unique"
 }
@@ -25,7 +25,7 @@ resource "aws_s3_bucket_public_access_block" "secure" {
   restrict_public_buckets = true
 }
 
-# Server-side encryption
+# Server-side encryption (SSE)
 resource "aws_s3_bucket_server_side_encryption_configuration" "secure" {
   bucket = aws_s3_bucket.secure.id
   rule {
@@ -35,7 +35,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "secure" {
   }
 }
 
-# Optional: Versioning
+# Optional: Versioning (often recommended)
 resource "aws_s3_bucket_versioning" "secure" {
   bucket = aws_s3_bucket.secure.id
   versioning_configuration {
@@ -43,18 +43,18 @@ resource "aws_s3_bucket_versioning" "secure" {
   }
 }
 
-# Optional: Enforce HTTPS only (no plaintext)
+# Optional: Enforce HTTPS-only access
 resource "aws_s3_bucket_policy" "https_only" {
   bucket = aws_s3_bucket.secure.id
   policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
-        Sid      = "EnforceTLSRequestsOnly",
-        Effect   = "Deny",
+        Sid       = "EnforceTLSRequestsOnly",
+        Effect    = "Deny",
         Principal = "*",
-        Action   = "s3:*",
-        Resource = [
+        Action    = "s3:*",
+        Resource  = [
           "arn:aws:s3:::${aws_s3_bucket.secure.id}",
           "arn:aws:s3:::${aws_s3_bucket.secure.id}/*"
         ],
