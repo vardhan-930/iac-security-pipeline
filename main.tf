@@ -8,3 +8,4 @@ resource "aws_s3_bucket" "bad" {
   # Missing encryption/public access block to trigger Checkov
 }
  # trigger Checkov
+"# trigger Checkov" 
