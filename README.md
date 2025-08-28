@@ -1,10 +1,9 @@
-1. Title  
-   - Infrastructure as Code Security Pipeline with Checkov and GitHub Actions
+ Infrastructure as Code Security Pipeline with Checkov and GitHub Actions
 
 2. Student Details  
    - Name: HARSHA VARDHAN BODDU  
    - Reg No: 229303278  
-   - Year & Section: SECTION D
+   - Section: D
 
 3. Project Goal  
    - I built a small CI pipeline that scans my Terraform code for security issues when I push or open a pull request.
@@ -37,11 +36,3 @@
    - Bucket names must be globally unique.  
    - If PR says “nothing to compare,” make a small change and push again.  
    - Use a Personal Access Token (PAT) for HTTPS pushes.
-
-If GitHub still shows the old content:
-- Make sure the file name is exactly README.md (case-sensitive on Linux).
-- Commit and push the change:
-  - git add README.md
-  - git commit -m "docs: update numbered README"
-  - git push
-
