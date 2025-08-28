@@ -7,3 +7,4 @@ resource "aws_s3_bucket" "bad" {
   bucket = "my-iac-demo-bucket-123456"
   # Missing encryption/public access block to trigger Checkov
 }
+ # trigger Checkov
