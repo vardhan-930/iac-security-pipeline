@@ -1,3 +1,4 @@
+Here’s a short numbered README you can copy-paste into README.md. Use plain Markdown exactly as shown.
 
 1) Title
 - BOLD: Infrastructure as Code Security Pipeline with Checkov and GitHub Actions
@@ -8,7 +9,7 @@
 - Year & Section: SECTION D
 
 3) Project Goal
-- I made a small CI pipeline that scans my Terraform code for security issues when I push or open a pull request.
+- I built a small CI pipeline that scans my Terraform code for security issues when I push or open a pull request.
 
 4) What It Does
 - Runs Checkov on Terraform files on every push/PR.
@@ -27,8 +28,8 @@
 
 8) What I Secured
 - S3 server-side encryption (AES256).
-- Blocked public access for the bucket.
-- Optional: versioning + HTTPS-only bucket policy.
+- Blocked all public access for the bucket.
+- Optional: versioning and HTTPS-only bucket policy.
 
 9) Files To See
 - main.tf — my S3 setup with security.
